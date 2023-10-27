@@ -1,0 +1,72 @@
+#contenedor {
+    display: flex;
+    gap: 25%;
+}
+img {
+    height: 100px;
+    width: 100px;
+}
+.ficha {
+    position: absolute;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation-name: aparecer;
+    animation-duration: 0.5s;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: scale(1);
+        rotate: 0deg;
+    }
+    25% {
+        transform: scale(1.25);
+        rotate: 90deg;
+    }
+    50% {
+        transform: scale(1.5);
+        rotate: 180deg;
+    }
+    75% {
+        transform: scale(1.25);
+        rotate: 270deg;
+    }
+    100% {
+        transform: scale(1);
+        rotate: 360deg;
+    }
+}
+
+#ficha3 {
+    position:relative;
+    top: -75px;
+    left: 25px;
+    background-color: yellow;
+}
+#ficha1 {
+    position:relative;
+    top: -80px;
+    left: 20px;
+    background-color: red;
+}
+#ficha2 {
+    position: relative;
+    top: -5px;
+    left: 10px;
+    width: 100%;
+    background-color: green;
+
+}
+#ficha4 {
+    position:relative;
+    top: -80px;
+    left: 25px;
+    background-color: blue;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MoverFicha01.css">
+    <title>Colocar Ficha</title>
+</head>
+
+<script>
+    var caja, ficha, nCaja;
+
+    window.addEventListener("load", iniciar);
+
+    function iniciar() {
+        ficha = document.getElementById('ficha1');
+        console.log(ficha);
+    }
+
+    function mover(idFicha) {
+        ficha = document.getElementById(idFicha);
+        caja = ficha.parentElement;
+        console.log(caja.id.substring(caja.id.length - 1));
+        nCaja = parseInt(caja.id.substring(caja.id.length - 1)) + 1;
+        caja.removeChild(ficha);
+        if ((nCaja - 1) === 3) {
+            nCaja = 1;
+        }
+        caja = document.getElementById("caja" + nCaja);
+        caja.appendChild(ficha);
+    }
+</script>
+
+<body>
+    <div id="contenedor">
+        <div class="caja" id="caja1">
+            <img src="zanahoria.JPG" alt="">
+            <div class="ficha" id="ficha1">1</div>
+            <div class="ficha" id="ficha2">2</div>
+            <div class="ficha" id="ficha3">3</div>
+            <div class="ficha" id="ficha4">4</div>
+        </div>
+
+        <div class="caja" id="caja2">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja3">
+            <img src="PalomaSinFondo-576x1024.png" alt="">
+        </div>
+    </div>
+    <input type="button" value="mover1" onclick="mover('ficha1')">
+    <input type="button" value="mover2" onclick="mover('ficha2')">
+    <input type="button" value="mover3" onclick="mover('ficha3')">
+    <input type="button" value="mover4" onclick="mover('ficha4')">
+</body>
+
+</html>

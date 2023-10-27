@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MoverFicha01.css">
+    <title>Colocar Ficha</title>
+</head>
+
+<script>
+    var caja, ficha, nCaja;
+
+    window.addEventListener("load", iniciar);
+
+    function iniciar() {
+        ficha = document.getElementById('ficha1');
+    }
+
+    function mover() {
+        caja = ficha.parentElement;
+        nCaja = parseInt(caja.id.substring(caja.id.length - 1)) + 1;
+        caja.removeChild(ficha);
+        if ((nCaja - 1) === 3) {
+            nCaja = 1
+        }
+        caja = document.getElementById("caja" + nCaja);
+        caja.appendChild(ficha);
+        ficha.style.transform = 'rotate(180deg)';
+    }
+</script>
+
+<body>
+    <div id="contenedor">
+        <div class="caja" id="caja1">
+            <img src="zanahoria.JPG" alt="">
+            <div class="ficha" id="ficha1"> 1 </div>
+        </div>
+
+        <div class="caja" id="caja2">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja3">
+            <img src="PalomaSinFondo-576x1024.png" alt="">
+        </div>
+    </div>
+    <input type="button" value="mover" onclick="mover()">
+</body>
+
+</html>

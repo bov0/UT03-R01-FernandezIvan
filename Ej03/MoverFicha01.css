@@ -1,0 +1,141 @@
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
+
+.caja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.ficha {
+    position: absolute;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation-name: aparecer;
+    animation-duration: 0.5s;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: scale(1);
+        rotate: 0deg;
+    }
+    25% {
+        transform: scale(1.25);
+        rotate: 90deg;
+    }
+    50% {
+        transform: scale(1.5);
+        rotate: 180deg;
+    }
+    75% {
+        transform: scale(1.25);
+        rotate: 270deg;
+    }
+    100% {
+        transform: scale(1);
+        rotate: 360deg;
+    }
+}
+
+#ficha3 {
+    margin-right: 5rem;
+    background-color: yellow;
+}
+
+#ficha1 {
+    margin-top: 5rem;
+    background-color: red;
+}
+
+#ficha2 {
+    margin-left: 5rem;
+    background-color: green;
+
+}
+
+#ficha4 {
+    margin-bottom: 5rem;
+    background-color: blue;
+}
+
+#botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input:hover {
+    opacity: 0.8;
+}
+
+#mover1 {
+    background-color: red;
+    color: whitesmoke;
+}
+
+#mover2 {
+    background-color: green;
+    color: whitesmoke;
+}
+
+#mover3 {
+    background-color: yellow;
+    color: black;
+}
+
+#mover4 {
+    background-color: blue;
+    color: whitesmoke;
+}
+
+
+#dado {
+    margin: 100px;
+    width: 200px;
+    height: 100px;
+    background-color: blueviolet;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    border: 3px solid black;
+    margin: auto;
+}
+
+#dado:hover {
+    background-color: rgb(183, 110, 250);
+    transition: 1s ease;
+}

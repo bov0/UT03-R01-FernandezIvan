@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MoverFicha01.css">
+    <title>Colocar Ficha</title>
+</head>
+
+<script>
+    var caja, ficha, nCaja, dado;
+    window.addEventListener("load", iniciar);
+
+    function iniciar() {
+        ficha = document.getElementById('ficha1');
+        dado = document.getElementById('dado');
+        dado.addEventListener('click', tirarDado);
+    }
+
+    var ganador = false;
+    var fichaMovida = false;
+
+    function mover(idFicha) {
+        ficha = document.getElementById(idFicha);
+        caja = ficha.parentElement;
+        if (dado.innerHTML !== 'DADO' && !ganador && !fichaMovida) {
+            var valorDado = parseInt(dado.innerHTML);
+            nCaja = parseInt(caja.id.substring(4)) + valorDado;
+            caja.removeChild(ficha);
+            if (nCaja == 10) {
+                caja = document.getElementById("caja10");
+                caja.appendChild(ficha);
+                alert('HAS GANADO');
+                ganador = true;
+                quitarMoverBotones();
+            } else if (nCaja > 10) {
+                nCaja = 10 - (nCaja - 10);
+                var cajaDestino = document.getElementById("caja" + nCaja);
+                cajaDestino.appendChild(ficha);
+                alert('TE HAS PASADO');
+            } else {
+                caja = document.getElementById("caja" + nCaja);
+                caja.appendChild(ficha);
+            }
+            fichaMovida = true;
+        }
+    }
+
+    function tirarDado() {
+        var random = Math.floor(Math.random() * 6 + 1);
+        dado.innerHTML = random;
+        fichaMovida = false;
+    }
+
+    function quitarMoverBotones() {
+        var botones = document.querySelectorAll('input[type=button]');
+        for (let i = 0; i < botones.length; i++) {
+            botones[i].removeAttribute("Onclick");
+        }
+    }
+</script>
+
+<body>
+    <div id="contenedor">
+        <div class="caja" id="caja1">
+            <img src="zanahoria.JPG" alt="">
+            <div class="ficha" id="ficha1">1</div>
+            <div class="ficha" id="ficha2">2</div>
+            <div class="ficha" id="ficha3">3</div>
+            <div class="ficha" id="ficha4">4</div>
+        </div>
+
+        <div class="caja" id="caja2">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja3">
+            <img src="PalomaSinFondo-576x1024.png" alt="">
+        </div>
+        <div class="caja" id="caja4">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja5">
+            <img src="zanahoria.JPG" alt="">
+        </div>
+        <div class="caja" id="caja6">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja7">
+            <img src="zanahoria.JPG" alt="">
+        </div>
+        <div class="caja" id="caja8">
+            <img src="piratas.jpg" alt="">
+        </div>
+        <div class="caja" id="caja9">
+            <img src="PalomaSinFondo-576x1024.png" alt="">
+        </div>
+        <div class="caja" id="caja10">
+            <img src="zanahoria.JPG" alt="">
+        </div>
+    </div>
+    <div id="botones">
+        <input type="button" id="mover1" value="mover1" onclick="mover('ficha1')">
+        <input type="button" id="mover2" value="mover2" onclick="mover('ficha2')">
+        <input type="button" id="mover3" value="mover3" onclick="mover('ficha3')">
+        <input type="button" id="mover4" value="mover4" onclick="mover('ficha4')">
+    </div>
+    <div id="dado">DADO</div>
+</body>
+
+</html>
